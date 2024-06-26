@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import Loader from "./Loader";
+import Projects from "../components/Projects";
+import Contact from "../components/Contact";
 
 const Home = () => {
   const loadBg = () => {
@@ -13,8 +14,8 @@ const Home = () => {
       scale: 1.0,
       scaleMobile: 1.0,
       color: 0x3b0d76,
-      size: 1.2,
-      backgroundColor: 0x151515,
+      size: 0.7,
+      backgroundColor: 0x101010,
     });
   };
 
@@ -25,19 +26,33 @@ const Home = () => {
   return (
     <section>
       {/* <Loader /> */}
-      <div id="main" className="main w-full overflow-hidden relative h-screen">
-        <div className="absolute  top-0 left-0 w-[100%] h-full bg-gradient-to-b from-transparent to-[#151515ab] flex flex-col md:flex-row md:justify-between">
+      <div id="main" className="main w-full relative min-h-screen">
+        <div className="absolute  top-0 left-0 w-[100%] h-full bg-gradient-to-b from-transparent to-[#10101071] flex flex-col md:flex-row md:justify-between">
           {/* --------navbar---------- */}
-          <nav className="w-full h-[10vh] px-20 py-5 fixed top-0 left-0 z-40 flex justify-between">
-            <div className="logo">LOGO</div>
+          <nav className="w-full h-[10vh] px-5 md:px-20 py-5 fixed top-0 left-0 z-40 flex justify-between">
+            <div className="logo font-black text-xl">ABHIK</div>
             <div className="links hidden md:flex gap-5">
-              <a href="">Home</a>
-              <a href="">Projects</a>
-              <a href="">Skills</a>
-              <a href="">Contact</a>
+              <a href="#">Home</a>
+              <a href="#project">Projects</a>
+              <a href="#contact">Contact</a>
             </div>
-            <button>Hire Me</button>
+            <a
+              href="/cv.pdf"
+              download="cv.pdf"
+              className="px-5 h-10 bg-white rounded-xl text-zinc-900 flex gap-3 items-center"
+            >
+              <span className="text-sm">Download CV</span>
+              <img src="/arrow.svg" className="h-4" />
+            </a>
           </nav>
+
+          {/* scroll */}
+          <div className="absolute uppercase text-zinc-500 -bottom-10 left-1/2 -translate-x-1/2 p-5 text-xl">
+            <img
+              src="https://assets-global.website-files.com/65ec76596f839f619b8b82fe/660a48e25f4b7a8e5c1ed820_Scroll.webp"
+              className="h-8"
+            />
+          </div>
 
           {/* -------hero big text---------- */}
           <div className="name pt-20 px-5 md:px-20 font-head leading-none md:w-max w-full text-[17vw] md:text-[9vw] xl:text-[7vw] font-black uppercase h-max md:h-[95%] flex justify-end items-start flex-col">
@@ -48,7 +63,7 @@ const Home = () => {
           </div>
 
           {/* -------hero small text---------- */}
-          <div className="md:w-[35rem] h-max w-full xl:w-[30rem] text-lg md:h-[95%] flex items-end p-5 lg:mr-20">
+          <div className="md:w-[35rem] h-max w-full xl:w-[30rem] text-lg md:h-[95%] flex items-end lg:mr-20">
             <p>
               Skilled front-end developer in{" "}
               <span className="font-bold">React.js</span> ,{" "}
@@ -59,23 +74,15 @@ const Home = () => {
           </div>
 
           {/* ---------grid lines----------- */}
-          <div className="hidden lg:block absolute -z-10 top-0 left-0">
-            <div className="grid grid-cols-10 grid-rows-1 gap-0 w-full h-screen">
-              <div className="row-span-6 w-[10vw] h-screen border-r-[0.01px] border-[#ffffff11]"></div>
-              <div className="row-span-6 border-r-[0.01px] border-[#ffffff11]"></div>
-              <div className="row-span-6 border-r-[0.01px] border-[#ffffff11]"></div>
-              <div className="row-span-6 border-r-[0.01px] border-[#ffffff11]"></div>
-              <div className="row-span-6 border-r-[0.01px] border-[#ffffff11]"></div>
-              <div className="row-span-6 border-r-[0.01px] border-[#ffffff11]"></div>
-              <div className="row-span-6 border-r-[0.01px] border-[#ffffff11]"></div>
-              <div className="row-span-6 border-r-[0.01px] border-[#ffffff11]"></div>
-              <div className="row-span-6 border-r-[0.01px] border-[#ffffff11]"></div>
-              <div className="row-span-6"></div>
-            </div>
-          </div>
         </div>
       </div>
-      <div className="w-full h-[100vh]"></div>
+      {/* <Marquee /> */}
+      <div id="project">
+        <Projects />
+      </div>
+      <div id="contact">
+        <Contact />
+      </div>
     </section>
   );
 };
